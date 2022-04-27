@@ -1,10 +1,12 @@
-import Foco from './Foco'
+import FilaFocos from './FilaFocos';
+import FocoMercurial from './FocoMercurial';
 
 function App() {
   return (
     <div id="techo">
-      <Foco/>
-      <Foco/>
+      <FocoMercurial/>
+      <FilaFocos/>
+      <FocoMercurial/>
     </div>
   );
 }
