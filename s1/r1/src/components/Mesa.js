@@ -1,12 +1,14 @@
 import React from 'react';
-import Mantel from './Mantel';
+import DosManteles from './DosManteles';
+import TresManteles from './TresManteles';
+import FilaCentral from './FilaCentral';
 
 const Mesa = () => {
 	return (
 		<div id="mesa" className="spaceAround">
-			<Mantel />
-			<Mantel />
-			<Mantel />
+			<TresManteles />
+			<FilaCentral />
+			<DosManteles />
 		</div>
 	);
 };

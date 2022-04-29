@@ -16,6 +16,7 @@ code {
 	background-color: pink;
 	width: 800px;
 	height: 500px;
+	flex-direction: column;
 }
 
 .mantel {
@@ -42,4 +43,30 @@ code {
 	width: 50%;
 	background-color: white;
 	border-radius: 50%;
+}
+
+.width100 {
+	width: 100%;
+}
+
+.centroDeMesa {
+	width: 100px;
+	height: 100px;
+	background-color: brown;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.oro {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #D6CB00;
+}
+
+.width70 {
+	width: 70%;
 }
