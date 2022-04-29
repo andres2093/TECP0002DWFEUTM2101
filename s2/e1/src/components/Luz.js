@@ -1,3 +1,4 @@
+// stateless
 // const Luz = () => {
 //   return (
 //     <div className="luz">

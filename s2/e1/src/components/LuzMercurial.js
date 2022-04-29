@@ -1,3 +1,4 @@
+// stateless
 // const LuzMercurial = () => {
 //   return (
 //     <div className="luzMercurial">
