@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Plato from './Plato';
 import Cubierto from './Cubierto';
 
@@ -16,8 +17,8 @@ class Mantel extends React.Component {
 			<div
 				className="mantel spaceAround"
 				style={{
-					height: this.state.height,
-					backgroundColor: this.state.backgroundColor
+					height: this.props.height || this.state.height,
+					backgroundColor: this.props.backgroundColor || this.state.backgroundColor
 				}}
 			>
 				<Cubierto />
@@ -27,5 +28,10 @@ class Mantel extends React.Component {
 		);
 	}
 };
+
+Mantel.propTypes = {
+	height: PropTypes.number,
+	backgroundColor: PropTypes.string
+}
 
 export default Mantel;
