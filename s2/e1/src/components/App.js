@@ -4,9 +4,10 @@ import FocoMercurial from './FocoMercurial';
 function App() {
   return (
     <div id="techo">
-      <FocoMercurial/>
+      <FocoMercurial color="green"/>
       <FilaFocos/>
-      <FocoMercurial/>
+      <FocoMercurial color="brown"/>
+      <FocoMercurial color={1}/> 
     </div>
   );
 }
