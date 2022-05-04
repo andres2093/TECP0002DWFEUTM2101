@@ -9,7 +9,13 @@ class App extends React.Component {
     }
   }
 
-  handleClick = () => {
+  restar = () => {
+    this.setState({
+      contador: this.state.contador - 1
+    })
+  }
+
+  sumar = () => {
     this.setState({
       contador: this.state.contador + 1
     })
@@ -18,11 +24,16 @@ class App extends React.Component {
   render() {
     return (
       <div className="margen">
-        {/* { this.state.contador } */}
+        <Boton
+          texto={ 'Restar' }
+          handleClick= { this.restar }
+        />
+
+        { this.state.contador }
 
         <Boton
-          texto={ this.state.contador }
-          handleClick= { this.handleClick }
+          texto={ 'Sumar' }
+          handleClick= { this.sumar }
         />
       </div>
     );
