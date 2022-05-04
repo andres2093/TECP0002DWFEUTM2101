@@ -29,6 +29,11 @@ class App extends React.Component{
     const nombreEnEstado = this.state.nombre
     if(!nombreEnEstado) return
 
+    const nombreYaExiste = this.state.listaNombres.find(
+			(item) => item === nombreEnEstado
+		);
+		if (nombreYaExiste) return alert(`Nombre "${nombreEnEstado}" ya existe.`);
+
     const listaActualizada = [
       ...this.state.listaNombres,
       nombreEnEstado
