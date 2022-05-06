@@ -16,3 +16,13 @@ npx create-react-app e1
 
 4. Mover **index.css** a carpeta css
 
+## Recomendaciones
+
+- Componentes que solo tienen la tarea de imprimir y/o ejecutar funciones del padre se recomienda:
+
+  const Boton = (props) => {}
+
+- Componente que tienen la tarea de invocar y/o ejecutar otros componentes hijos se recomienda:
+
+  - Tipo clase: Para componentes principales o maestros.
+  - Tipo función con useState(): Para componentes secundarios.
