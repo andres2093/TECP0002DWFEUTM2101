@@ -23,6 +23,8 @@ const App = () => {
     return componenteNoHay
   }
 
+  const cambiarGenero = (event) => console.log(event);
+
   return (
     <div className="margen">
       Directo
@@ -60,6 +62,29 @@ const App = () => {
       <br/>
       { mostrarUsuarios && <Usuarios/> }
       <br/>
+      <br/>
+      <br/>
+      <br/>
+      Reto 02
+      <br/>
+      <br/>
+      <input 
+        id="nina"
+        value='nina'
+        type='radio' 
+        name="genero"
+        onClick={cambiarGenero}/>
+      <label htmlFor="nina">Niña</label>
+      <br/>
+      <input 
+        id="nino"
+        value='nino'
+        type='radio' 
+        name="genero"
+        onClick={cambiarGenero}/>
+      <label htmlFor="nino">Niño</label>
+
+      {/* { renderizarGenero() } */}
     </div>
   );
 }
