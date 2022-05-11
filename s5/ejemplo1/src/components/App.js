@@ -1,87 +1,85 @@
 import React from "react";
 import Nombre from "./Nombre";
 
-class App extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      nombre: '',
-      mensaje: '',
-      listaNombres: []
-    }
-  }
+const App = () => {
+  const [state, setState] = React.useState({
+    tarea: '',
+    mensaje: '',
+    listaTareas: ['Reto 2']
+  })
 
-  componentDidUpdate(prevProps, prevState){
-    if(this.state.listaNombres !== prevState.listaNombres){
-      this.setState({
-        mensaje: `La longitud de la lista es: ${this.state.listaNombres.length}`
-      })
-    }
+  const didUpdate = () => {
+    setState({
+      ...state,
+      mensaje: `Por hacer: ${state.listaTareas.length}`
+    })
   }
+  React.useEffect(didUpdate, [state.listaTareas])
 
-  handleInputChange = (event) => {
-    this.setState({
-      nombre: event.target.value
+  const handleInputChange = (event) => {
+    setState({
+      ...state,
+      tarea: event.target.value
     })
   }
 
-  handleClick = () => {
-    const nombreEnEstado = this.state.nombre
-    if(!nombreEnEstado) return
+  const handleClick = () => {
+    const tareaEnEstado = state.tarea
+    if(!tareaEnEstado) return
 
-    const nombreYaExiste = this.state.listaNombres.find(
-			(item) => item === nombreEnEstado
+    const tareaYaExiste = state.listaTareas.find(
+			(item) => item === tareaEnEstado
 		);
-		if (nombreYaExiste) return alert(`Nombre "${nombreEnEstado}" ya existe.`);
+		if (tareaYaExiste) return alert(`Tarea "${tareaEnEstado}" ya existe.`);
 
     const listaActualizada = [
-      ...this.state.listaNombres,
-      nombreEnEstado
+      ...state.listaTareas,
+      tareaEnEstado
     ]
 
-    this.setState({
-      nombre: '',
-      listaNombres: listaActualizada
+    setState({
+      ...state,
+      tarea: '',
+      listaTareas: listaActualizada
     })
   }
 
-  borrarNombreDeLista = (key) => {
-    const copiaDeLista = [...this.state.listaNombres]
+  const borrarTarea = (key) => {
+    const copiaDeLista = [...state.listaTareas]
     copiaDeLista.splice(key, 1)
 
-    this.setState({
-      listaNombres: copiaDeLista
+    setState({
+      ...state,
+      listaTareas: copiaDeLista
     })
   }
 
-  render(){
-    return (
-      <div className="margen">
-        { this.state.mensaje }
-        <br/>
-        <input 
-          value={ this.state.nombre }
-          onChange={this.handleInputChange}
-        />
-        <button onClick={ this.handleClick }>
-          Agregar
-        </button>
+  return (
+    <div className="margen">
+      { state.mensaje }
+      <br/>
+      <input 
+        value={ state.tarea }
+        onChange={handleInputChange}
+      />
+      <button onClick={ handleClick }>
+        Agregar
+      </button>
 
-        <ul>
-          {
-            this.state.listaNombres.map((item, key) => (
-              <li key={ key }>
-                <Nombre 
-                  nombre={ item }
-                  borrarNombreDeLista={ () => this.borrarNombreDeLista(key) }
-                />
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    );
-  }
+      <ul>
+        {
+          state.listaTareas.map((item, key) => (
+            <li key={ key }>
+              <Nombre 
+                nombre={ item }
+                borrarNombreDeLista={ () => borrarTarea(key) }
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  );
 }
 
 export default App;
