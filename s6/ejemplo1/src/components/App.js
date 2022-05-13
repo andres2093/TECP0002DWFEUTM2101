@@ -5,11 +5,16 @@ import {
 import Cabeza from './Cabeza'
 import Cuerpo from './Cuerpo'
 import Header from './Header'
+import Header2 from './Header2'
+import Hojas from './Hojas'
+import Cocos from './Cocos'
+import Tronco from './Tronco'
 
 const App = () => {
   return (
     <div className="margen">
       <Router>
+        <h1>Ejemplo 1</h1>
         <Header/>
         <br/>
 
@@ -27,6 +32,26 @@ const App = () => {
               <React.Fragment>
                 <Cabeza/>
                 <Cuerpo/>
+              </React.Fragment>
+            } 
+          />
+        </Routes>
+        
+        <h1>Reto 1</h1>
+        <Header2/>
+
+        <Routes>
+          <Route exact path="/" element={'¿Qué va a llevar?'} />
+          <Route exact path="/hojas" element={<Hojas/>} />
+          <Route exact path="/cocos" element={<Cocos/>} />
+          <Route exact path="/tronco" element={<Tronco/>} />
+          <Route 
+            exact path="/palmera" 
+            element={
+              <React.Fragment>
+                <Hojas/>
+                <Cocos/>
+                <Tronco/>
               </React.Fragment>
             } 
           />
