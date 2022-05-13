@@ -48,11 +48,11 @@ const App = () => {
           <Route 
             exact path="/palmera" 
             element={
-              <React.Fragment>
+              <div className='align'>
                 <Hojas/>
                 <Cocos/>
                 <Tronco/>
-              </React.Fragment>
+              </div>
             } 
           />
         </Routes>
