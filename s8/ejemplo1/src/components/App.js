@@ -5,11 +5,13 @@ import Divider from '@mui/material/Divider'
 import Fotos from './Fotos';
 import Parrafos from './Parrafos';
 import Opiniones from './Opiniones';
+import Header from './Header';
+import Forma from './Forma';
 
 const App = () => {
   return (
     <Container>
-      <h1>Ejemplo 01</h1>
+      {/* <h1>Ejemplo 01</h1>
       <Container className="container">
         <Grid container spacing={3}>
           <Grid item lg={3} md={4} sm={6} xs={12}>
@@ -82,6 +84,15 @@ const App = () => {
 
         </Grid>
       </Container>
+
+      <br/>
+      <h1>Ejemplo 2</h1> */}
+      <div>
+        <Header/>
+        <Container style={{marginTop: '100px'}}>
+          <Forma/>
+        </Container>
+      </div>
     </Container>
   )
 }
