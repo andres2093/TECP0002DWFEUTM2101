@@ -23,3 +23,12 @@ code {
 .anidado {
   background-color: orange;
 }
+
+.foto {
+  height: 100px;
+  background-color: pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
