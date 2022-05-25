@@ -1,5 +1,6 @@
 import Loader from "./Loader";
 import React from 'react';
+import { banner, beto } from "./const";
 
 function App() {
   const [loader, setLoader] = React.useState(true);
@@ -8,7 +9,17 @@ function App() {
     if (loader){
       setTimeout(() => {
         setLoader(false)
-      }, 3000);
+        // fetch('http://localhost:4000')
+        // .then(response => response.json())
+        // .then(data => {
+        //   console.log('Correcto');
+        //   console.log(data)
+        // })
+        // .catch(error => {
+        //   console.log('Falló');
+        //   console.log(error)
+        // })
+      }, 1000);
     }
   }
   React.useEffect(didMount, [])
@@ -16,9 +27,23 @@ function App() {
   return (
     <div className="App">
       {
-        loader && <Loader/>
+        loader ? <Loader/> : 
+        <div>
+          <div class="navbar">
+            {/* Iconos */}
+            {/* https://fontawesome.com/v4/icons/ */}
+            <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a> 
+            <a href="#"><i class="fa fa-fw fa-search"></i> Search</a> 
+            <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a> 
+            <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+            <a href="#"><i class="fa fa-fw fa-bell"></i> Fotos</a>
+          </div>
+          <br/>
+          <button onClick={() => setLoader(false)}>Cerrar</button>
+          <img src={banner}/>
+          <img src={beto}/>
+        </div>
       }
-      <button onClick={() => setLoader(false)}>Cerrar</button>
     </div>
   );
 }
